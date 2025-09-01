@@ -71,7 +71,6 @@ public class Reptiles<R> {
     }
 
 
-
     public record ReaderResult<R>(Map<String, Object> metadata, R content) {
     }
 

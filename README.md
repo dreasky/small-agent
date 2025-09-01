@@ -1,3 +1,5 @@
+# 简易自定义智能体
+
 ## 服务器运维工具 - [onePanel](https://1panel.cn/)
 
 ```bash
@@ -5,7 +7,7 @@
 bash -c "$(curl -sSL https://resource.fit2cloud.com/1panel/package/v2/quick_start.sh)"
 ```
 
-## 会话记忆 - 基于Redis
+## 会话记忆 - 基于Redis [memory](src/main/java/com/qik/agent/ai/memory)
 
 ### 部署：
 
@@ -34,7 +36,7 @@ bash -c "$(curl -sSL https://resource.fit2cloud.com/1panel/package/v2/quick_star
 </dependencies>
 ```
 
-## RAG向量储存 - pgvector
+## 向量储存 - pgVector
 
 ### docker部署
 
@@ -69,3 +71,17 @@ docker run -d --name pgvector -e POSTGRES_USER=[yourName] -e POSTGRES_PASSWORD=[
 |-----------|----------------------------------------|--------|
 | dashscope | multimodal-embedding-v1                | 1024   |
 | ollama    | MadMind/Qwen3-Embedding-8B-GGUF-Q4_K_M | 4096   |
+
+## Utility
+
+### [reptiles](src/main/java/com/qik/agent/utility/reptiles)
+
+简易自定义html抓取工具，包括三部分：
+
+- TargetHandle（负责获取网页内容）
+- CleanRule（负责清洗内容）
+- ResultHandle（负责处理输出结果）
+
+### [translation](src/main/java/com/qik/agent/utility/translation)、
+
+腾讯云翻译
