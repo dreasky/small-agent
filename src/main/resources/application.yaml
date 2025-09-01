@@ -1,0 +1,67 @@
+server:
+  port: 8123
+  servlet:
+    context-path: /api
+
+spring:
+  application:
+    name: lin-ai-agent
+  profiles:
+    active: local
+
+  ai:
+    dashscope:
+      api-key: [ your api key ]
+      chat:
+        options:
+          model: qwen-plus-2025-04-28
+      embedding:
+        options:
+          model: multimodal-embedding-v1
+          dimensions: 1024
+    ollama:
+      base-url: http://localhost:11434
+      chat:
+        model: gemma3n:e2b
+      embedding:
+        options:
+          model: nomic-embed-text:latest  # dimensions 768
+
+    vectorstore:
+      pgvector:
+        dimensions: 768
+        initialize-schema: true
+    memory:
+      redis:
+        host: 127.0.0.1
+        port: 6379
+        password: [ your password ]
+        timeout: 2000
+  datasource:
+    url: jdbc:postgresql://localhost:5432/lin_ai_agent
+    username: [ your name ]
+    password: [ your password ]
+
+# api文档
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+  api-docs:
+    path: /v3/api-docs
+  group-configs:
+    - group: 'default'
+      paths-to-match: '/**'
+      packages-to-scan: com.qik.agent.controller
+knife4j:
+  enable: true
+  setting:
+    language: zh_cn
+
+# 自定义配置
+app:
+  tencent:
+    translator:
+      secret-id: [ your secret id ]
+      secret-key: [ your secret key ]
