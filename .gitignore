@@ -1,5 +1,6 @@
 ### custom ###
 /src/main/resources/application-local.yaml
+/tmp
 
 HELP.md
 target/
