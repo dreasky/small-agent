@@ -64,7 +64,7 @@ public class Reptiles<R> {
         }
 
         // 获取结果内容
-        return new ReaderResult<R>(
+        return new ReaderResult<>(
                 additionalMetadata,
                 resultHandle.apply(document)
         );
